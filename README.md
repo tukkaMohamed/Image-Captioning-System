@@ -121,31 +121,25 @@ Generated Caption
 
 ## 📸 Screenshots
 
-### Home Page
+<img width="1918" height="1078" alt="Screenshot 2026-07-10 220539" src="https://github.com/user-attachments/assets/df524170-b1f3-4951-835a-3f7531e2731f" />
 
-> Add a screenshot here.
+-----
+<img width="1918" height="1078" alt="Screenshot 2026-07-10 221012" src="https://github.com/user-attachments/assets/6d3c0428-b642-46e2-b4f7-d79bdee6a5d6" />
 
-```
-screenshots/home.png
-```
+-----
+<img width="1918" height="1078" alt="Screenshot 2026-07-10 220952" src="https://github.com/user-attachments/assets/75992106-7d6c-4814-be7e-42cf49e81c42" />
 
-### Caption Generation
+-----
+<img width="1918" height="875" alt="Screenshot 2026-07-10 220811" src="https://github.com/user-attachments/assets/646752c8-1e4b-4ba1-8b73-93a784c2d97a" />
 
-> Add a screenshot here.
+-----
 
-```
-screenshots/caption.png
-```
+<img width="1918" height="1078" alt="Screenshot 2026-07-10 220558" src="https://github.com/user-attachments/assets/03e5e4e1-ea87-4ace-bc0f-17914a93df17" />
 
-### Compare Models
+-----
+<img width="1918" height="1078" alt="Screenshot 2026-07-10 220645" src="https://github.com/user-attachments/assets/6fa329ac-444e-4171-b7c6-368dad176173" />
 
-> Add a screenshot here.
-
-```
-screenshots/compare.png
-```
-
----
+----
 
 ## 📈 Results
 
