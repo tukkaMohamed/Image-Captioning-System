@@ -1,74 +1,168 @@
-# 🖼️ Image Captioning System — Streamlit GUI
+# 🖼️ AI Image Captioning System
 
-Multimodal AI demo comparing **LSTM**, **GRU**, and **Transformer** decoders on image captioning.
+An AI-powered Image Captioning System built with **PyTorch** and **Streamlit** that automatically generates natural language descriptions for images. The project compares three deep learning architectures (**LSTM**, **GRU**, and **Transformer**) using **EfficientNetB0** as the image feature extractor.
+
+---
+
+## 🚀 Features
+
+- Upload an image and generate an automatic caption.
+- Compare three different captioning models:
+  - LSTM + Bahdanau Attention
+  - GRU + Bahdanau Attention
+  - Transformer Decoder
+- Interactive Streamlit web interface.
+- Compare inference time between models.
+- Modern and user-friendly UI.
+
+---
+
+## 🧠 Models
+
+| Model | Architecture | Decoding |
+|--------|--------------|----------|
+| LSTM | Bahdanau Attention + LSTMCell | Greedy Search |
+| GRU | Bahdanau Attention + GRUCell | Greedy Search |
+| Transformer | Transformer Decoder | Beam Search |
+
+---
+
+## 📊 Dataset
+
+- Flickr8k Dataset
+- Image Encoder: EfficientNetB0
+- Extracted Feature Size: **49 × 1280**
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- PyTorch
+- Streamlit
+- TorchVision
+- EfficientNetB0
+- PIL (Pillow)
+- NumPy
+
+---
 
 ## 📁 Project Structure
 
-```
+```text
 ImageCaptioningGUI/
 │
-├── app.py               ← Streamlit entry point  →  streamlit run app.py
-├── predict.py           ← High-level predict(image, model) → caption
-├── model_loader.py      ← Loads all 3 models (unified or legacy checkpoints)
+├── app.py
+├── predict.py
+├── model_loader.py
 ├── requirements.txt
 ├── README.md
 │
 ├── models/
 │   ├── LSTM/
-│   │   ├── lstm_full.pth          ← unified checkpoint  (model+vocab+config)
-│   │   │   OR
-│   │   ├── lstm_attn.pth          ← legacy weights
-│   │   └── vocab.pkl              ← legacy vocab
-│   │
 │   ├── GRU/
-│   │   ├── gru_full.pth           ← unified checkpoint
-│   │   │   OR
-│   │   ├── gru_caption_model.pth  ← legacy weights
-│   │   └── vocab.pkl              ← legacy vocab
-│   │
 │   └── Transformer/
-│       └── transformer_best.pth   ← unified checkpoint (always unified)
 │
 ├── utils/
-│   ├── __init__.py
-│   ├── feature_extractor.py  ← EfficientNetB0 → (49, 1280)
-│   └── caption_utils.py      ← greedy decode (LSTM/GRU) + beam search (Transformer)
+│   ├── feature_extractor.py
+│   └── caption_utils.py
 │
-├── assets/
-│   └── logo.png               ← optional logo
-│
-└── uploaded_images/           ← auto-created, stores last uploaded image
+└── uploaded_images/
 ```
 
-## ⚙️ Setup
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/tukkaMohamed/Image-Captioning-System.git
+```
+
+Go to the project directory
+
+```bash
+cd Image-Captioning-System
+```
+
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
+```
+
+Run the application
+
+```bash
 streamlit run app.py
 ```
 
-## 📦 Checkpoint Formats
+---
 
-### Unified (recommended — no mismatch errors ever)
-```python
-torch.save({
-    "model_state": model.state_dict(),
-    "vocab":       vocab,
-    "vocab_size":  len(vocab),
-    "config":      {"embed_dim": 256, "hidden_dim": 512, ...}
-}, "models/LSTM/lstm_full.pth")
+## 🔄 Project Pipeline
+
+```text
+Input Image
+      │
+      ▼
+EfficientNetB0
+      │
+Extract Image Features
+      │
+      ▼
+LSTM / GRU / Transformer
+      │
+      ▼
+Generated Caption
 ```
 
-### Legacy (separate files — still supported)
-- `lstm_attn.pth` + `vocab.pkl`  in `models/LSTM/`
-- `gru_caption_model.pth` + `vocab.pkl` in `models/GRU/`
+---
 
-The app auto-detects which format is present.
+## 📸 Screenshots
 
-## 🎮 Features
+### Home Page
 
-| Feature | Description |
-|---|---|
-| Single model | Upload image → pick LSTM / GRU / Transformer → get caption |
-| Compare All | Runs all 3 models simultaneously, shows captions + inference times |
-| Project Info | Dataset stats, architecture overview, performance table, pipeline diagram |
+> Add a screenshot here.
+
+```
+screenshots/home.png
+```
+
+### Caption Generation
+
+> Add a screenshot here.
+
+```
+screenshots/caption.png
+```
+
+### Compare Models
+
+> Add a screenshot here.
+
+```
+screenshots/compare.png
+```
+
+---
+
+## 📈 Results
+
+The application allows comparing:
+
+- Generated captions from all three models.
+- Inference time for each model.
+- Side-by-side qualitative comparison.
+
+---
+
+## 🎯 Future Improvements
+
+- Deploy the application online.
+- Add BLEU, METEOR, and ROUGE evaluation inside the interface.
+- Train on the MS COCO dataset.
+- Add attention visualization.
+- Support custom model checkpoints.
+
+---
